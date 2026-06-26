@@ -17,11 +17,12 @@ const config = {
 
   // Photos used in the polaroid + scrapbook screens.
   // Drop your images in /public/photos and reference them with a leading slash.
-  photos: ['/photos/1.jpg', '/photos/2.jpg'],
+  photos: ['/photos/1.jpg'],
 
   // YouTube video ID (the part after "watch?v=") for the final song screen.
   // e.g. for https://www.youtube.com/watch?v=dQw4w9WgXcQ  ->  'dQw4w9WgXcQ'
-  youtubeId: '4NRXx6U8ABQ',
+  // "Yellow Paper Daisy" — When Chai Met Toast (official video)
+  youtubeId: 'RshlH3T27U4',
 
   // Number of lit candles on the cake.
   candleCount: 18,
