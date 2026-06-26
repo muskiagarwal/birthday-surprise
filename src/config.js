@@ -13,11 +13,12 @@ const config = {
 
   // The handwritten letter on the scrapbook screen.
   letterText:
-    'Happy birthday bestie! I know I always say this to you, but I really do miss you. Thank you for being such an amazing friend and for always being there for me.',
+    "You are an amazing friend. Thank you for always being there — I really do miss our college days. Come see me soon! And let's skip the whole \"I miss you\" thing; just know how grateful I am for you. I don't say it enough, but I'm so grateful for our friendship. And thank you for introducing me to the best song ever 💛",
 
   // Photos used in the polaroid + scrapbook screens.
   // Drop your images in /public/photos and reference them with a leading slash.
-  photos: ['/photos/1.jpg'],
+  // 1.jpg = you two dancing (polaroid + scrapbook), 2.jpg = the plushie (scrapbook)
+  photos: ['/photos/1.jpg', '/photos/2.jpg'],
 
   // YouTube video ID (the part after "watch?v=") for the final song screen.
   // e.g. for https://www.youtube.com/watch?v=dQw4w9WgXcQ  ->  'dQw4w9WgXcQ'
