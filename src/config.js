@@ -6,7 +6,7 @@
 
 const config = {
   // 4-digit PIN that unlocks the experience.
-  secretCode: '1225',
+  secretCode: '1906',
 
   // Shown in headings and the letter sign-off.
   recipientName: 'Babe',
