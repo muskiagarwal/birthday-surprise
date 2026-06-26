@@ -12,7 +12,7 @@ export default function FinalSong() {
         Our song 🎶
       </motion.h1>
       <p className="mb-5 mt-1 font-body text-sm text-softred/70">
-        Press play and dance with me, even from afar 💕
+        Press play and dance it out — wish I could be there 💛
       </p>
 
       <motion.div

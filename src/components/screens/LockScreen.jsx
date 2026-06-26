@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, useAnimationControls } from 'framer-motion'
 import config from '../../config.js'
 import Character from '../Character.jsx'
+import Dog from '../Dog.jsx'
 
 const KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', null, '0', 'del']
 
@@ -38,7 +39,16 @@ export default function LockScreen({ onUnlock }) {
 
   return (
     <div className="flex w-full flex-col items-center text-center">
-      <Character variant="flowers" className="mb-1 h-44 w-44 animate-floaty drop-shadow" />
+      <div className="mb-1 flex items-end justify-center gap-1">
+        <Character variant="flowers" className="h-40 w-40 animate-floaty drop-shadow" />
+        <motion.div
+          initial={{ y: 8, rotate: -4 }}
+          animate={{ rotate: [-4, 4, -4], y: [0, -4, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <Dog className="h-32 w-32 drop-shadow" />
+        </motion.div>
+      </div>
 
       <h1 className="font-hand text-2xl text-softred">A surprise awaits…</h1>
       <p className="mb-6 mt-1 font-body text-sm text-softred/70">

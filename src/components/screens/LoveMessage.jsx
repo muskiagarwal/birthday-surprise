@@ -20,7 +20,7 @@ export default function LoveMessage({ onNext }) {
       >
         Happy Birthday
         <br />
-        my love
+        bestie
       </motion.h1>
 
       <motion.p
@@ -29,7 +29,7 @@ export default function LoveMessage({ onNext }) {
         transition={{ delay: 0.6 }}
         className="mb-7 mt-3 max-w-xs font-body text-softred/70"
       >
-        I hope today is as sweet and wonderful as you are 🍰💗
+        I hope today is as sweet and wonderful as you are 🍰💛
       </motion.p>
 
       <Button onClick={onNext}>Next →</Button>
