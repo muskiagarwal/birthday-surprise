@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', ui-sans-serif, system-ui, sans-serif;
+  background: #fff7f2;
+  color: #e14b6a;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+/* Prevent the iOS rubber-band background from showing white */
+#root {
+  background: #fff7f2;
+}
+
+@layer utilities {
+  .text-shadow-soft {
+    text-shadow: 0 2px 0 rgba(255, 255, 255, 0.6);
+  }
+  /* Hide scrollbars on the polaroid/scrapbook scroll areas for a cleaner look */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
