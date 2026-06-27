@@ -24,17 +24,30 @@ const SCREENS = [
 ]
 
 // Soft fade + slide transition shared by every screen.
+// `direction` (1 = forward, -1 = back) flips the slide so going back feels right.
 const screenVariants = {
-  enter: { opacity: 0, y: 28, scale: 0.98 },
+  enter: (dir) => ({ opacity: 0, y: dir >= 0 ? 28 : -28, scale: 0.98 }),
   center: { opacity: 1, y: 0, scale: 1 },
-  exit: { opacity: 0, y: -28, scale: 0.98 },
+  exit: (dir) => ({ opacity: 0, y: dir >= 0 ? -28 : 28, scale: 0.98 }),
 }
 
 export default function App() {
   const [index, setIndex] = useState(0)
+  const [direction, setDirection] = useState(1)
   const screen = SCREENS[index]
 
-  const next = () => setIndex((i) => Math.min(i + 1, SCREENS.length - 1))
+  const next = () => {
+    setDirection(1)
+    setIndex((i) => Math.min(i + 1, SCREENS.length - 1))
+  }
+
+  // Revisit earlier screens without reloading. Floor at 1 (reveal) so the
+  // recipient never gets sent back to the PIN lock.
+  const back = () => {
+    setDirection(-1)
+    setIndex((i) => Math.max(1, i - 1))
+  }
+  const canGoBack = index > 1
 
   const renderScreen = () => {
     switch (screen) {
@@ -63,10 +76,30 @@ export default function App() {
     <div className="relative min-h-[100dvh] w-full overflow-hidden font-body">
       <Background />
 
+      {/* Back button — revisit earlier screens without reloading */}
+      <AnimatePresence>
+        {canGoBack && (
+          <motion.button
+            type="button"
+            key="back-btn"
+            onClick={back}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -10 }}
+            whileTap={{ scale: 0.92 }}
+            className="fixed left-4 top-4 z-30 flex items-center gap-1 rounded-full bg-white/80 px-4 py-2 font-body text-sm font-bold text-softred shadow-soft backdrop-blur-sm hover:bg-white"
+            aria-label="Go back to the previous screen"
+          >
+            <span className="text-base leading-none">←</span> Back
+          </motion.button>
+        )}
+      </AnimatePresence>
+
       <main className="relative z-10 mx-auto flex min-h-[100dvh] w-full max-w-md flex-col items-center justify-center px-5 py-8">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={screen}
+            custom={direction}
             variants={screenVariants}
             initial="enter"
             animate="center"
