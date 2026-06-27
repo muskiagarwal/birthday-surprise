@@ -17,8 +17,9 @@ const config = {
 
   // Photos used in the polaroid + scrapbook screens.
   // Drop your images in /public/photos and reference them with a leading slash.
-  // 1.jpg = you two dancing (polaroid + scrapbook), 2.jpg = the plushie (scrapbook)
-  photos: ['/photos/1.jpg', '/photos/2.jpg'],
+  // Currently just the plushie (2.jpg). Add the dancing photo as 1.jpg later and
+  // set this to ['/photos/1.jpg', '/photos/2.jpg'] to show both.
+  photos: ['/photos/2.jpg'],
 
   // YouTube video ID (the part after "watch?v=") for the final song screen.
   // e.g. for https://www.youtube.com/watch?v=dQw4w9WgXcQ  ->  'dQw4w9WgXcQ'
